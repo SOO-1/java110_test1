@@ -29,7 +29,34 @@ public class App {
         
     }
     
-    static Members[] members = new Members[100];
+    static class Students extends Members{
+        //name address id school tel working
+        private String school;
+        private boolean working;
+        private String tel;
+        
+        public String getSchool() {
+            return school;
+        }
+        public void setSchool(String school) {
+            this.school = school;
+        }
+        public String getTel() {
+            return tel;
+        }
+        public void setTel(String tel) {
+            this.tel = tel;
+        }
+        public boolean isWorking() {
+            return working;
+        }
+        public void setWorking(boolean working) {
+            this.working = working;
+        }
+        
+    }
+    
+    static Students[] students = new Students[100];
     static Scanner keyIn = new Scanner(System.in);
     static int index = 0;
 
@@ -88,9 +115,9 @@ public class App {
 
             String todo = keyIn.nextLine();
             if(todo.equalsIgnoreCase("add")){
-                Input();
+                inputStudents();
             }else if(todo.toLowerCase().equals("list")) {
-                Output();
+                printStudents();
             }else if(todo.toLowerCase().equals("quit")) {
                 break;
             }else{
@@ -100,22 +127,31 @@ public class App {
 
     }
     
-    private static void Input()
-    {
+    private static void inputStudents()
+    {//name address id school tel working 
         while(true)
         {
-            Members m = new Members();
+            Students s = new Students();
             
             System.out.print("이름: ");
-            m.setName(keyIn.nextLine());
+            s.setName(keyIn.nextLine());
             
             System.out.print("주소: ");
-            m.setAddress(keyIn.nextLine());
+            s.setAddress(keyIn.nextLine());
             
             System.out.print("학번: ");
-            m.setId(keyIn.nextLine());
+            s.setId(keyIn.nextLine());
             
-            members[index] = m;
+            System.out.println("최종학위: ");
+            s.setSchool(keyIn.nextLine());
+            
+            System.out.println("전화번호: ");
+            s.setTel(keyIn.nextLine());
+            
+            System.out.println("재직여부(true/false): ");
+            s.setWorking(Boolean.parseBoolean(keyIn.nextLine()));
+            
+            students[index] = s;
             
             index++;
             
@@ -128,10 +164,21 @@ public class App {
         }
         
     }
-    static void Output()
+    static void printStudents()
     {
-        for(int i=0; i<index; i++)
-            System.out.printf("%s, %s, %s\n", members[i].getName(), members[i].getAddress(), members[i].getId());
+        int count = 0;
+        
+        for(Students s : students)  //students는 배열
+        {
+            if(count++ == index) break;
+            System.out.printf("%s, %s, %s, %s, %s, %b\n"
+                    ,s.getName()
+                    ,s.getAddress()
+                    ,s.getId()
+                    ,s.getSchool()
+                    ,s.getTel()
+                    ,s.isWorking());
+        }
         
     }
     
