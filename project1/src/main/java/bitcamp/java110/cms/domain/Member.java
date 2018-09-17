@@ -1,11 +1,18 @@
+package bitcamp.java110.cms.domain;
 
 public class Member {
 
-    private String name;
-    private String email;
-    private String password;
+    protected String name;
+    protected String email;
+    protected String password;
+    protected String tel;
     
-
+    public String getTel() {
+        return tel;
+    }
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
     public String getEmail() {
         return email;
     }

@@ -1,4 +1,7 @@
+package bitcamp.java110.cms.control;
 import java.util.Scanner;
+
+import bitcamp.java110.cms.domain.Member;
 
 public class TeacherController extends Member {
 
@@ -9,16 +12,9 @@ public class TeacherController extends Member {
     
     static class Teacher extends Member{
 
-        protected String tel;
         protected int pay;
         protected String subjects;
 
-        public String getTel() {
-            return tel;
-        }
-        public void setTel(String tel) {
-            this.tel = tel;
-        }
         public int getPay() {
             return pay;
         }

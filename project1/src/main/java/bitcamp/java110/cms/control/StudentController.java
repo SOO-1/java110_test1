@@ -1,4 +1,7 @@
+package bitcamp.java110.cms.control;
 import java.util.Scanner;
+
+import bitcamp.java110.cms.domain.Member;
 
 public class StudentController{
    
@@ -10,19 +13,12 @@ public class StudentController{
 
         protected String school;
         protected boolean working;
-        protected String tel;
 
         public String getSchool() {
             return school;
         }
         public void setSchool(String school) {
             this.school = school;
-        }
-        public String getTel() {
-            return tel;
-        }
-        public void setTel(String tel) {
-            this.tel = tel;
         }
         public boolean isWorking() {
             return working;
